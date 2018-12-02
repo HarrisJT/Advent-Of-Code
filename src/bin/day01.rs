@@ -12,7 +12,7 @@ fn main() {
     let mut seen_frequencies = HashSet::new();
     let mut frequency_sum = 0;
 
-    // Find the first result that is not None and map it to final
+    // Find the first result that is not None and continue when .replace returns Some
     frequency_changes
         .iter()
         .cycle()
