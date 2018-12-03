@@ -1,9 +1,12 @@
 use std::collections::HashSet;
 
-fn main() {
+fn main() -> std::io::Result<()> {
     let input: &str = include_str!("../../tests/day01/input");
+    // Turn input into vector of integers
     let frequency_changes: Vec<i32> = input
         .split_whitespace()
+        // Parse the string into i32 integer using turbofish because parse is too general, needs
+        // to know what type to parse into. Unwrap returns value inside Result of parse.
         .map(|s| s.parse::<i32>().unwrap())
         .collect();
 
@@ -22,4 +25,5 @@ fn main() {
         }).expect("No repeated frequency sums.");
 
     println!("Part II: {}", frequency_sum);
+    Ok(())
 }
